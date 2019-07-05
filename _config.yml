@@ -1,15 +1,15 @@
 # Site
 name: 'The CAD Coder'
 description: 'Free Visual Basic for Application tutorial for Solidworks 3d software macro programming.'
-logo: 'assets/images/favicon.png'
+# logo: 'assets/images/favicon.png'
 # favicon: 'assets/images/favicon.ico'
 # baseurl: ''
 disqus: 'demowebsite'
 email: 'thecadcoder@gmail.com'
 mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 
-include: ["_pages"]
-permalink: /:title/
+# include: ["_pages"]
+# permalink: /:title/
 
 # Plugins
 plugins: 
