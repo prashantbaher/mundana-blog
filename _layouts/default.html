@@ -53,7 +53,7 @@
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+        <div class="navbar-collapse collapse" id="navbarColor02" >
             <ul class="navbar-nav mr-auto d-flex align-items-center">
                {% include menu-header.html %}
             </ul>
@@ -87,13 +87,33 @@
     <footer class="bg-white border-top p-3 text-muted small">
         <div class="container">
         <div class="row align-items-center justify-content-between">
+            {%- for link in site.social-network-links -%}
+                {%- assign curkey = link[0] -%}
+                {%- assign element = site.data.SocialNetworks[curkey] -%}
+                <li>
+                {%- if curkey == 'rss' -%}
+                    <a href="{{ '/feed.xml' | relative_url }}" title="{{ element.name }}">
+                {%- elsif curkey == 'yelp' -%}
+                    <a href="https://{{ site.social-network-links[curkey] }}.yelp.com" title="{{ element.name }}">
+                {%- else -%}
+                    <a href="{{element.baseURL}}{{ site.social-network-links[curkey] }}" title="{{ element.name }}">
+                {%- endif -%}
+                    <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa {{ element.icon }} fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="sr-only">{{ element.name }}</span>
+                    </a>
+                </li>
+            {%- endfor -%}
             <div>
+                <!--
                 <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
                 <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
-
-                <!--  Github Repo Star Btn-->
+                -->
+                <!--  Github Repo Star Btn
                 <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
-
+                -->
             </div>
             <div>
                 Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
